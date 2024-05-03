@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ song.title }}</h1>
+
+  <p><strong>Artist:</strong> <a href="">{{ song.artist }}</a></p>
+  <!-- artist detail link not yet defined -->
+  <p><strong>Genre:</strong> {{ song.genre.all|join:", " }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    
+  </div>
+{% endblock %}

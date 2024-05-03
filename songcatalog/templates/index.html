@@ -1,16 +1,45 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Ultimate Playlist Home</h1>
-  <p>
-    Welcome to Ultimate Playlist, a website developed by
-    <em>Thomas Jeske</em>!
-  </p>
-  <h2>Dynamic content</h2>
-  <p>The ultimate playlist library has the following record counts:</p>
-  <ul>
-    <li><strong>Songs:</strong> {{ num_songs }}</li>
-    <li><strong>Copies:</strong> {{ num_instances }}</li>
-    <li><strong>Artists:</strong> {{ num_artists }}</li>
-  </ul>
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Welcome to Ultimate Playlist</h1>
+      <p class="lead">
+        Created by <em>Thomas Jeske</em>
+      </p>
+      <hr class="my-4">
+      <p class="lead">
+        To create a playlist, please navigate to the admin page.
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Songs</h2>
+            <p class="card-text">{{ num_songs }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Copies</h2>
+            <p class="card-text">{{ num_instances }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Artists</h2>
+            <p class="card-text">{{ num_artists }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

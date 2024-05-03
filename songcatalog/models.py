@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 from django.urls import reverse # Used in get_absolute_url() to get URL for specified ID
@@ -67,8 +68,9 @@ class SongInstance(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,
                           help_text="Unique ID for this particular song")
     song = models.ForeignKey('Song', on_delete=models.RESTRICT, null=True)
-    imprint = models.CharField(max_length=200)
-    due_back = models.DateField(null=True, blank=True)
+    
+    mysongs = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+
 
 
     def __str__(self):

@@ -28,3 +28,18 @@ from django.views import generic
 class SongListView(generic.ListView):
     model = Song
     paginate_by = 10
+class SongDetailView(generic.DetailView):
+    model = Song
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class MySongsByUserListView(LoginRequiredMixin,generic.ListView):
+    """Generic class-based view listing songs on loan to current user."""
+    model = SongInstance
+    template_name = 'songcatalog/songinstance_list_mysongs_user.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return (
+            SongInstance.objects.filter(mysongs=self.request.user)
+            
+        )
